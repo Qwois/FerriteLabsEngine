@@ -1,0 +1,24 @@
+# билдовые директории
+/build*/
+/Engine/Intermediate/
+/Engine/DerivedDataCache/
+/Engine/Binaries/
+/Engine/*/Build/
+
+# conan кэш
+/.conan/
+
+# vs/clang-CL artifacts
+*.sln *.vcxproj* *.pdb *.obj *.exe
+
+# cmake файлы
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# macOS
+.DS_Store
+
+# логи
+*.log
