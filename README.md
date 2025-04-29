@@ -20,6 +20,12 @@ InstalledDir: C:\Program Files\LLVM\bin
 
 ---
 
+> Важный аспект, установить через python Ninja и Conan:
+```
+pip install conan
+pip install ninja
+```
+
 
 ## 🛠️ Сборка проекта
 
@@ -48,6 +54,13 @@ cd build
 
 ```bash
 conan install .. --build=missing --profile=default -of .
+
+
+❗Важно: --profile=default, это ваш profile conan, обычно они лежат здесь:
+"C:\Users\kamil\.conan2\profiles\macos"
+"C:\Users\kamil\.conan2\profiles\windows"
+"C:\Users\kamil\.conan2\profiles\default"
+
 
 cmake .. -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release
 
