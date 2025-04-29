@@ -2,12 +2,14 @@
 #include <stdexcept>
 #include <iostream>
 
-namespace Ferrite {
+namespace Ferrite 
+{
 
 Application::Application() = default;
 Application::~Application() = default;
 
-int Application::Run() {
+int Application::Run() 
+{
     InitWindow();
     renderer.Init(window);
     MainLoop();
@@ -15,7 +17,8 @@ int Application::Run() {
     return 0;
 }
 
-void Application::InitWindow() {
+void Application::InitWindow() 
+{
     if (!glfwInit()) {
         throw std::runtime_error("Failed to initialize GLFW");
     }
@@ -26,16 +29,18 @@ void Application::InitWindow() {
     }
 }
 
-void Application::MainLoop() {
-    while (!glfwWindowShouldClose(window)) {
+void Application::MainLoop() 
+{
+    while (!glfwWindowShouldClose(window))
+    {
         glfwPollEvents();
     }
 }
 
-void Application::Cleanup() {
+void Application::Cleanup() 
+{
     renderer.Cleanup();
     glfwDestroyWindow(window);
     glfwTerminate();
 }
-
 }

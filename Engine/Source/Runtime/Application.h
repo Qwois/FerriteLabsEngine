@@ -3,9 +3,11 @@
 #include <GLFW/glfw3.h>
 #include "VulkanRenderer.h"
 
-namespace Ferrite {
+namespace Ferrite 
+{
 
-class Application {
+class Application 
+{
 public:
     Application();
     ~Application();
@@ -20,5 +22,4 @@ private:
     GLFWwindow* window = nullptr;
     VulkanRenderer renderer;
 };
-
 }

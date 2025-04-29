@@ -5,9 +5,11 @@
 #include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
 
-namespace Ferrite {
+namespace Ferrite 
+{
 
-class VulkanRenderer {
+class VulkanRenderer 
+{
 public:
     void Init(GLFWwindow* window);
     void Cleanup();
@@ -19,5 +21,4 @@ private:
     VkInstance instance = VK_NULL_HANDLE;
     VkSurfaceKHR surface = VK_NULL_HANDLE;
 };
-
 }
