@@ -1,5 +1,24 @@
 ## 📦 Требования
 - **Clang** ≥ 20.1.3
+Проверка:
+```bash
+clang --version
+```
+
+Пример вывода:
+```
+clang version 20.1.3
+Target: x86_64-pc-windows-msvc
+Thread model: posix
+InstalledDir: C:\Program Files\LLVM\bin
+```
+
+Если не установлен, скачать отсюда:  
+👉 [LLVM Releases](https://github.com/llvm/llvm-project/releases)
+
+> Я установил: `LLVM-20.1.3-win64.exe`
+
+---
 
 
 ## 🛠️ Сборка проекта
