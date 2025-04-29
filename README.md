@@ -90,6 +90,7 @@ tools.cmake.cmaketoolchain:generator=Ninja
 tools.build:compiler_executables={"c": "clang", "cpp": "clang"}
 ```
 ❗Подмечу❗
+
 Убедитесь, что используйте именно clang, а не clang-cl, бывает такое, что для автоматизации работы, вы можете свой conan профиль скинуть ChatGPT, а он любит на свое усмотрение менять параметры.
 Поэтому нельзя использовать clang-cl, так как он не поддерживает такие флаги как:
 ```
