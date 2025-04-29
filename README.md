@@ -24,6 +24,8 @@ InstalledDir: C:\Program Files\LLVM\bin
 ```
 pip install conan
 pip install ninja
+
+❗Используйте стабильные версии Python. 3.9.x или 3.10.x
 ```
 
 
