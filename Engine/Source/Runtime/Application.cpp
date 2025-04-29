@@ -1,46 +1,54 @@
+// Application.cpp
 #include "Application.h"
-#include <stdexcept>
-#include <iostream>
+#include <spdlog/spdlog.h>
 
-namespace Ferrite 
+namespace Ferrite
 {
-
 Application::Application() = default;
 Application::~Application() = default;
 
-int Application::Run() 
+int Application::Run()
 {
-    InitWindow();
-    renderer.Init(window);
-    MainLoop();
-    Cleanup();
+    try {
+        Init();
+        MainLoop();
+        Cleanup();
+    } catch (const std::exception& e) {
+        spdlog::error("Fatal error: {}", e.what());
+        return -1;
+    }
     return 0;
 }
 
-void Application::InitWindow() 
+void Application::Init()
 {
-    if (!glfwInit()) {
-        throw std::runtime_error("Failed to initialize GLFW");
-    }
-    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    window = glfwCreateWindow(800, 600, "Ferrite Labs Engine", nullptr, nullptr);
-    if (!window) {
-        throw std::runtime_error("Failed to create GLFW window");
+    spdlog::set_level(spdlog::level::debug); // можно менять на info
+    spdlog::info("Initializing application...");
+
+    window = std::make_unique<Window>(1280, 720, "Ferrite Labs Engine");
+
+    window->SetResizeCallback([](int width, int height) {
+        spdlog::info("Window resized: {}x{}", width, height);
+    });
+
+    renderer.Init(window->GetNativeHandle());
+
+    spdlog::info("Initialization complete.");
+}
+
+void Application::MainLoop()
+{
+    while (!window->ShouldClose()) {
+        window->PollEvents();
+
+        // Update, Render и т.п. — позже сюда
     }
 }
 
-void Application::MainLoop() 
-{
-    while (!glfwWindowShouldClose(window))
-    {
-        glfwPollEvents();
-    }
-}
-
-void Application::Cleanup() 
+void Application::Cleanup()
 {
     renderer.Cleanup();
-    glfwDestroyWindow(window);
-    glfwTerminate();
+    window.reset();
+    spdlog::info("Application cleanup complete.");
 }
 }

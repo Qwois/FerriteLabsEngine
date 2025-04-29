@@ -1,12 +1,12 @@
 #pragma once
 
-#include <GLFW/glfw3.h>
+#include "Window.h"
+#include <memory>
 #include "VulkanRenderer.h"
 
-namespace Ferrite 
+namespace Ferrite
 {
-
-class Application 
+class Application
 {
 public:
     Application();
@@ -15,11 +15,11 @@ public:
     int Run();
 
 private:
-    void InitWindow();
+    void Init();
     void MainLoop();
     void Cleanup();
 
-    GLFWwindow* window = nullptr;
+    std::unique_ptr<Window> window;
     VulkanRenderer renderer;
 };
 }

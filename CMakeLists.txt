@@ -35,6 +35,7 @@ find_package(nuklear REQUIRED)
 add_executable(EngineMain
     Engine/Source/Runtime/Application.cpp
     Engine/Source/Runtime/VulkanRenderer.cpp
+    Engine/Source/Runtime/Window.cpp
     Engine/Source/Runtime/Launch/LaunchWindows.cpp
 )
 
