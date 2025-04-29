@@ -8,7 +8,7 @@
 # conan кэш
 /.conan/
 
-# vs/clang artifacts
+# vs/clang-CL artifacts
 *.sln *.vcxproj* *.pdb *.obj *.exe
 
 # cmake файлы
@@ -22,5 +22,3 @@ Makefile
 
 # логи
 *.log
-
-.vscode
