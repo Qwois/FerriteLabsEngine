@@ -66,6 +66,35 @@ cmake .. -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_
 
 cmake --build .
 ```
+---
+
+Вот пример номарльного профиля conan:
+```
+[settings]
+os=Windows
+arch=x86_64
+compiler=clang
+compiler.version=20
+compiler.libcxx=libc++
+compiler.cppstd=20
+compiler.runtime=dynamic
+compiler.runtime_type=Release
+compiler.runtime_version=v143
+build_type=Release
+
+
+[conf]
+tools.cmake.cmaketoolchain:generator=Ninja
+tools.build:compiler_executables={"c": "clang", "cpp": "clang"}
+```
+❗Подмечу❗
+Убедитесь, что используйте именно clang, а не clang-cl, бывает такое, что для автоматизации работы, вы можете свой conan профиль скинуть ChatGPT, а он любит на свое усмотрение менять параметры.
+Поэтому нельзя использовать clang-cl, так как он не поддерживает такие флаги как:
+```
+-isystem, -std=c++20, -O3 и тд
+```
+
+---
 
 Пример успешной сборки:
 
