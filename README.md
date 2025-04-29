@@ -62,6 +62,7 @@ conan install .. --build=missing --profile=default -of .
 "C:\Users\kamil\.conan2\profiles\macos"
 "C:\Users\kamil\.conan2\profiles\windows"
 "C:\Users\kamil\.conan2\profiles\default"
+PS, на разных системах, они всегда в разных директориях
 
 
 cmake .. -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release
